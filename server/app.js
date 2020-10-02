@@ -8,6 +8,8 @@ var app = express();
 var newsapi = new Newsapi(apiKey);
 app.use(cors());
 
+const port=process.env.PORT||3000;
+
 app.get("/covid19",function(req, res){
     var data = {};
     axios("https://api.covid19api.com/summary")
@@ -36,6 +38,6 @@ app.get("/everything", function(req, res){
 })
 
 // server at port 3000
-app.listen('8000', function(){
+app.listen(port, function(){
     console.log("YelpCamp server has started")
 })
